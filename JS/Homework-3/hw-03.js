@@ -1,10 +1,11 @@
 // Есть массив logins с логинами пользователей.Напиши скрипт добавления логина в массив logins.Добавляемый логин должен:
 
-//     проходить проверку на длину от 4 до 16 - ти символов включительно
+// проходить проверку на длину от 4 до 16 - ти символов включительно
 // быть уникален, то есть отсутствовать в массиве logins
 // Разбей задачу на подзадачи с помощью функций.
 
-// Напиши функцию isLoginValid(login), в которой проверь количество символов параметра login и верни true или false в зависимости от того, попадает ли длина параметра в заданный диапазон от 4 - х до 16 - ти символов включительно.
+// Напиши функцию isLoginValid(login), в которой проверь количество символов параметра login и верни true или false
+// в зависимости от того, попадает ли длина параметра в заданный диапазон от 4 - х до 16 - ти символов включительно.
 
 // Напиши функцию isLoginUnique(allLogins, login), которая принимает список всех логинов и добавляемый 
 // логин как параметры и проверяет наличие login в массиве allLogins, возвращая true если такого логина 
@@ -34,22 +35,43 @@
 
 // =========================================================================================================================
 
+`use string`
+
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
+
 const isLoginValid = function(login) {
-    // код
+    if (typeof login === "string" && login.length >= 4 && login.length <= 16) {
+        return true;
+    }
+    return false;
 };
 
 const isLoginUnique = function(allLogins, login) {
-    // код
+    for (let elem of logins) {
+        if (elem === login) {
+            return true;
+        }
+    }
+    return false;
 };
+
 
 const addLogin = function(allLogins, login) {
-    // код
+    if (!isLoginValid(login)) {
+        return ("Ошибка! Логин должен быть от 4 до 16 символов");
+    }
+    if (isLoginUnique(logins, login)) {
+        return ("Такой логин уже используется!");
+    }
+    logins.push(login);
+    return ("Логин успешно добавлен!");
 };
 
+
+
 // Вызовы функции для проверки
-addLogin(logins, 'Ajax'); // 'Логин успешно добавлен!'
-addLogin(logins, 'robotGoogles'); // 'Такой логин уже используется!'
-addLogin(logins, 'Zod'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
-addLogin(logins, 'jqueryisextremelyfast'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+console.log(addLogin(logins, 'Ajax')); // 'Логин успешно добавлен!'
+console.log(addLogin(logins, 'robotGoogles')); // 'Такой логин уже используется!'
+console.log(addLogin(logins, 'Zod')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+console.log(addLogin(logins, 'jqueryisextremelyfast')); // 'Ошибка! Логин должен быть от 4 до 16 символов'

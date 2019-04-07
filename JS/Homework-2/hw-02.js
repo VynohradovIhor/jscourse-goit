@@ -15,27 +15,27 @@
 // 'было введено не число, попробуйте еще раз', при этом результат prompt записывать в массив чисел не нужно, 
 // после чего снова пользователю предлагается ввести число в prompt.
 
-'use strict'
+// 'use strict'
 
-const numbers = [];
-let total = 0;
-let i;
-while (true) {
-    let input = prompt("Введите число");
-    if (input == null) {
-        break;
-    }
-    numbers.push(Number.parseInt(input));
-    if (isNaN(input)) {
-        alert('Было введено не число, попробуйте еще раз')
-    }
-}
-if (numbers.length > 0) {
-    for (i = 0; i < numbers.length; i += 1) {
-        total += numbers[i];
-    }
-    console.log(`Общая сумма чисел равна ${total}`);
-}
+// const numbers = [];
+// let total = 0;
+// let i;
+// while (true) {
+//     let input = prompt("Введите число");
+//     if (input === null) {
+//         break;
+//     }
+//     numbers.push(Number.parseInt(input));
+//     if (isNaN(input)) {
+//         alert('Было введено не число, попробуйте еще раз')
+//     }
+// }
+// if (numbers.length > 0) {
+//     for (i = 0; i < numbers.length; i += 1) {
+//         total += numbers[i];
+//     }
+//     console.log(`Общая сумма чисел равна ${total}`);
+// }
 
 // Задание 2
 // Напиши скрипт имитирующий авторизацию пользователя.
@@ -55,27 +55,27 @@ if (numbers.length > 0) {
 // // Продолжать запрашивать пароль до тех пор, пока пользователь не введет существующий пароль, 
 // не кончатся попытки или пока пользователь не нажмет Cancel в prompt.
 
-'use strict'
-const passwords = ["qwerty", "111qwe", "123123", "r4nd0mp4zzw0rd"];
-let attempts = 3;
-let currentInput;
+// 'use strict'
+// const passwords = ["qwerty", "111qwe", "123123", "r4nd0mp4zzw0rd"];
+// let attempts = 3;
+// let currentInput;
 
-do {
-    currentInput = prompt("Введите пароль");
-    if (currentInput === null) {
-        break;
-    }
+// do {
+//     currentInput = prompt("Введите пароль");
+//     if (currentInput === null) {
+//         break;
+//     }
 
-    attempts -= 1;
-    if (passwords.includes(currentInput)) {
-        alert("Добро пожаловать!");
-        break;
-    }
+//     attempts -= 1;
+//     if (passwords.includes(currentInput)) {
+//         alert("Добро пожаловать!");
+//         break;
+//     }
 
-    if (attempts > 0) {
-        alert(`Неверный пароль. У Вас осталось ${attempts} попыток`);
-    } else {
-        alert("У вас закончились попытки, аккаунт заблокирован!");
-    }
+//     if (attempts > 0) {
+//         alert(`Неверный пароль. У Вас осталось ${attempts} попыток`);
+//     } else {
+//         alert("У вас закончились попытки, аккаунт заблокирован!");
+//     }
 
-} while (attempts > 0);
+// } while (attempts > 0);
